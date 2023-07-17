@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Editar Cliente</title>
+
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:panelGrid columns="2" cellspacing="5" border="1">
+			<f:facet name="header">
+				<h:outputText value="Formulario Cliente"></h:outputText>
+			</f:facet>
+
+			<h:outputLabel value="Nombres:"></h:outputLabel>
+			<h:inputText value="#{cliente.nombres}"></h:inputText>
+
+			<h:outputLabel value="Apellidos:"></h:outputLabel>
+			<h:inputText value="#{cliente.apellidos}"></h:inputText>
+
+			<h:outputLabel value="Direccion:"></h:outputLabel>
+			<h:inputText value="#{cliente.direccion}"></h:inputText>
+
+			<h:outputLabel value="Email:"></h:outputLabel>
+			<h:inputText value="#{cliente.email}"></h:inputText>
+
+			<h:outputLabel value="Telefono:"></h:outputLabel>
+			<h:inputText value="#{cliente.telefono}"></h:inputText>
+
+			<f:facet name="footer">
+				<h:panelGroup>
+					<h:commandButton value="Guardar" rendered="#{not clienteBean.editarCliente}"
+						action="#{clienteBean.guardar(cliente)}" />
+					<h:commandButton value="Actualizar"
+						rendered="#{clienteBean.editarCliente}" action="#{clienteBean.actualizar(cliente)}" />
+				</h:panelGroup>
+
+				<h:commandButton value="Cancelar" action="#{clienteBean.cancelar()}"></h:commandButton>
+			</f:facet>
+
+
+		</h:panelGrid>
+	</h:form>
+
+
+</h:body>
+</html>
